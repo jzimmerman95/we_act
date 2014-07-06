@@ -23,4 +23,8 @@
 	<%= @event.address %>
 </p>
 
+<p>
+	<strong>Picture:</strong>
+	<%= image_tag @event.picture.url(:thumb) %>
+</p>
 <%= link_to 'Back', events_path %>
