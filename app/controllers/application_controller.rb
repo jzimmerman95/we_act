@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
 
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name, :city, :state, :picture) }
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name, :city, :state, :bio) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :name, :city, :state, :bio, :current_password) }
     end
     
   # Prevent CSRF attacks by raising an exception.

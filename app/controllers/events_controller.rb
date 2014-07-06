@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_event, only: [:edit, :update, :show]
+	before_action :set_event, only: [:edit, :update, :show, :join]
 
 	def new
 		@event = Event.new
@@ -9,6 +9,7 @@ class EventsController < ApplicationController
 	def create
 		@event = Event.new(event_params.merge({:admin_id => current_user.id}))
 		if @event.save
+			#current_user.events << @event
 			redirect_to events_path
 		else
 			render :new
@@ -22,6 +23,10 @@ class EventsController < ApplicationController
   	
   	end
 
+  	def join
+  		@event.users << current_user
+  		redirect_to events_path
+  	end
 
   	def update 
   		@event.update(event_params)

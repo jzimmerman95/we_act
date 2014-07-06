@@ -1,0 +1,21 @@
+<h1>Welcome to Your Profile!</h1>
+
+<p><%=@user.name%></p>
+<p><%=@user.bio%></p>
+<p><%=@user.city%></p>
+<p><%=@user.state%></p>
+<p><%=@user.name%></p>
+
+<p>Your Created Events:</p>
+<% @user.created_events.each do |event| %>
+<li><%= link_to event.title, event_path(event) %></li>
+<%end%>
+
+<p>Your Joined Events:</p>
+<% @user.events.each do |event| %>
+<li><%= link_to event.title, event_path(event) %></li>
+<%end%>
+
+<br/>
+<%= link_to 'View All Events', events_path %>
+</br>

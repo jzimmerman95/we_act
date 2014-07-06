@@ -9,6 +9,8 @@ class Event < ActiveRecord::Base
 
   	after_create :send_event_create_email
 
+
+
   	protected
 		def send_event_create_email
 			UserMailer.event_created_email(self).deliver
