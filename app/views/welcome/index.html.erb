@@ -1,7 +1,28 @@
-<h1>Welcome to WeAct</h1>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>weAct</title>
+		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/> -->
+	</head>
+	<body> 
+		<div id="navbar"> 
+			<ul> 
+		  		<%= image_tag("weact.jpg", height: 50, width: 120, id: "logo") %>
+		  		<li><a href="#signup">Sign Up</a></li>
+				<li><a href="#aboutme">About Me</a></li>
+				<li><a href="#home">Home</a></li> 
+		  	</ul> 
+		</div> 
+		<div id="home">
+			<p>Home</p>
+		</div>
+		<div id="about">
+			<p>About</p>
+		</div>
+		<div id="signup">
+			<p>Sign up</p>
+		</div>
+	</body>
+</html>
 
-<p>Carosel with info will go here</p>
-
-
-<p>Need to add scroll functionality</p>
 <%= link_to 'Events', events_path %>
