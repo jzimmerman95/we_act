@@ -8,4 +8,13 @@ class User < ActiveRecord::Base
 	
 	has_many :events, :through => :memberships
 	has_many :created_events, :class_name => 'Event', :foreign_key => :admin_id
+
+	after_create :send_user_create_email
+
+
+
+	protected
+		def send_user_create_email
+			UserMailer.user_created_email(self).deliver
+		end
 end
