@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 	has_many :memberships
 	
 	has_many :events, :through => :memberships
+	has_many :teams, :through => :memberships
+	has_many :positions, :through => :memberships
+	
 	has_many :created_events, :class_name => 'Event', :foreign_key => :admin_id
 
 	after_create :send_user_create_email
