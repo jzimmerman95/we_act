@@ -27,4 +27,16 @@
 	<strong>Picture:</strong>
 	<%= image_tag @event.picture.url(:thumb) %>
 </p>
+
+<p>
+	
+<% @event.teams.each do |team| %>
+Team: <%= team.name %>
+<br/>
+Positions: <% team.positions.each do |position| %>
+<%= position.name %>
+<% end %>
+<br/>
+<% end %>
+</p>
 <%= link_to 'Back', events_path %>
