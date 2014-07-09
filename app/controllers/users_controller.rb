@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 		end
 
 		def event_params
-			params.require(:user).permit(:name, :bio, :city, :state)
+			params.require(:user).permit(:name, :bio, :city, :state, :interest_list, :category_list)
 		end
 end
 

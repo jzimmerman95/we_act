@@ -16,6 +16,14 @@
 <li><%= link_to event.title, event_path(event) %></li>
 <%end%>
 
+<p>Your Interests</p>
+Personal:<% @user.interest_list.each do |interest| %>
+<%= interest %>
+<%end%>
+<br/>
+Event Categories:<%@user.category_list.each do |category| %>
+<%= category %>
+<%end%>
 <br/>
 <%= link_to 'View All Events', events_path %>
 </br>

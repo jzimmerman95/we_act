@@ -1,4 +1,8 @@
 class Event < ActiveRecord::Base
+	acts_as_taggable
+	acts_as_taggable_on :categories
+
+
 	has_many :memberships
 	has_many :users, :through => :memberships
 
@@ -11,7 +15,9 @@ class Event < ActiveRecord::Base
 
   	after_create :send_event_create_email
 
-
+  	def self.filter(query)
+		query.blank? ? Event.all : Event.where("title LIKE '%#{query}%'")
+	end
 
   	protected
 		def send_event_create_email

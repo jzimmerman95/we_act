@@ -1,8 +1,15 @@
 <h1>Events List</h1>
+
+
+<%= form_tag events_path, :method => 'GET' do %>
+<%= text_field_tag 'q', params[:q] %>
+<%= submit_tag 'SEARCH' %>
+<% end %>
+
 <ul>
 	<% @events.each do |event| %>
 	<li>
-		<%= event.title %>
+		<%= link_to event.title, event_path(event) %>
 		<%= link_to 'Edit', edit_event_path(event) %>
 		<% if user_signed_in? %>
 			<%= link_to "Join", join_url(id: event.id) %>

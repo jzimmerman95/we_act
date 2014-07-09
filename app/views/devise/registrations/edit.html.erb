@@ -18,6 +18,12 @@
   <div><%= f.label :state %><br />
   <%= f.text_field :state %></div>
 
+  <div><%= f.label :personal_interests %><br />
+  <%= f.text_field :interest_list %></div>
+
+  <div><%= f.label :event_categories %><br />
+  <%= f.text_field :category_list %></div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

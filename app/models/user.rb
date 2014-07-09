@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	# has_and_belongs_to_many(:events, :join_table => "users_events")
+	acts_as_taggable
+	acts_as_taggable_on :categories, :interests
+
+
 	has_many :memberships
 	
 	has_many :events, :through => :memberships

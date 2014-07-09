@@ -34,7 +34,8 @@ class EventsController < ApplicationController
   	end
 
 	def index
-		@events = Event.all
+		@events = Event.filter(params[:q])
+		
 	end
 
 	private
@@ -44,6 +45,6 @@ class EventsController < ApplicationController
 		end
 
 		def event_params
-			params.require(:event).permit(:title, :description, :city, :state, :address, :event_time, :picture)
+			params.require(:event).permit(:title, :description, :city, :state, :address, :event_time, :picture, :category_list)
 		end
 end

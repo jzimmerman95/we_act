@@ -39,4 +39,11 @@ Positions: <% team.positions.each do |position| %>
 <br/>
 <% end %>
 </p>
+
+<p>
+
+	Categories:<% @event.category_list.each do |category| %>
+	<%= category %>
+	<%end%>
+</p>
 <%= link_to 'Back', events_path %>
