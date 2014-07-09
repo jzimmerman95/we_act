@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :events, :only => [:index, :create, :new, :edit, :update, :show, :join]
   get 'events/:id/join' => 'events#join', as: :join
 
+  #resources :memberships, :only => [:update]
+
   #patch 'events/:id' => 'events#update'
   resources :users, :only => [:show]
 

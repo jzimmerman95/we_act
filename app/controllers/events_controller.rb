@@ -25,7 +25,7 @@ class EventsController < ApplicationController
 
   	def join
   		@event.users << current_user
-  		redirect_to events_path
+  		redirect_to @event
   	end
 
   	def update 
@@ -35,7 +35,9 @@ class EventsController < ApplicationController
 
 	def index
 		@events = Event.filter(params[:q])
-		
+		if request.xhr? 
+      		render :partial => 'events', :layout => nil
+    	end
 	end
 
 	private
