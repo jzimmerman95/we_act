@@ -1,29 +1,140 @@
-body {
-	background-size: cover;
-	background-color: aqua;
+body, html {
+	background-color: white;
+	height: 100%;
+	width: 100%;
 }
 
 #home {
-	height: 100%;
-	background-image: url(volunteer.jpg);
-	background-size: cover;
+	height: 700px;
+	background-image: url("homepage.jpg");
+	background-size: 1300px 800px;
 	margin-left: -1%;
-	margin-right: -1%;
+}
+
+#seeforyourself {
+	margin-top: 455px;
+	margin-left: 483px;
+}
+
+#abouttop {
+	padding-top: 70px;
+	margin-top: -70px;
+	visibility: none;
 }
 
 #about {
-	height: 100%;
+	height: 800px;
+}
+
+#backgroundcolor {
+	background-color: #eeeeee;
+	padding: 400px;
+	margin-left: -10px;
+}
+
+#missionstatement {
+	text-align: center;
+	margin: -355px -130px;
+	font-family: 'Goudy Bookletter 1911';
+	font-size: 42px;
+	color: #313131;
+}
+
+#houseicon {
+	margin-top: 310px;
+	margin-left: 185px;
+}
+
+#noteicon {
+	margin-top: 310px;
+}
+
+#actionicon {
+	margin-left: 11px;
+}
+
+#line {
+	width: 328px;
+	margin-bottom: 18px;
+	margin-left: 6px;
+}
+
+#line2 {
+	width: 328px;
+	margin-bottom: 18px;
+}
+
+#leftheader {
+	font-family: 'Goudy Bookletter 1911';
+	font-size: 28px;
+	margin-left: 102px;
+	color: #313131;
+}
+
+#leftparagraph {
+	font-family: 'Lato';
+	font-size: 18px;
+	color: #313131;
+	margin-top: -18px;
+	margin-left: 102px;
+	font-weight: lighter;
+	margin-right: 900px;
+	letter-spacing: 1px;
+}
+
+#midheader {
+	font-family: 'Goudy Bookletter 1911';
+	font-size: 28px;
+	margin-left: 540px;
+	margin-top: -408px;
+	color: #313131;
+}
+
+#midparagraph {
+	font-family: 'Lato';
+	font-size: 18px;
+	color: #313131;
+	margin-top: -20px;
+	margin-left: 538px;
+	font-weight: lighter;
+	margin-right: 460px;
+	letter-spacing: 1px;
+}
+
+#rightheader {
+	font-family: 'Goudy Bookletter 1911';
+	font-size: 28px;
+	margin-left: 943px;
+	margin-top: -403px;
+	color: #313131;
+}
+
+#rightparagraph {
+	font-family: 'Lato';
+	font-size: 18px;
+	color: #313131;
+	margin-top: -20px;
+	margin-left: 947px;
+	font-weight: lighter;
+	margin-right: 52px;
+	letter-spacing: 1px;
 }
 
 #logo {
 	position: fixed;
 	z-index: 10;
-	margin-top: 3px;
-	margin-left: 5px;
+	margin-left: 40px;
+	margin-top: -10px;
+}
+
+#signuptop {
+	padding-top: 70px;
+	margin-top: -70px;
+	visibility: none;
 }
 
 #signup {
-	height: 100%;
+	height: 700px;
 }
 
 #navbar {
@@ -46,21 +157,26 @@ body {
 #navbar ul li {
 	float: right;
 	font-family: 'Lato';
-	font-size: 22px;
+	font-weight: lighter;
+	font-size: 19px;
 	text-align: center;
 }
 
 #navbar ul li a {
 	display: block;
 	text-decoration: none;
-	margin-top: 15;
-	padding: .2em 3.5em;
+	margin-top: 4px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-right: 80px;
 	color: gray;
 	background-color: white;
 }
 
 #navbar ul li a:hover {
 	color: white;
-	background-color: #ffd6e0;
+	background-color: #7eb0fc;
 }
 
