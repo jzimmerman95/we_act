@@ -1,7 +1,16 @@
 class MembershipsController < ApplicationController
+	before_action :set_membership, :only => [:update, :edit, :show]
 	
+	def edit
+	end
+
+	def show
+
+	end
+
 	def update
 		@membership.update(membership_params)
+		redirect_to events_path
 	end
 
 	def set_membership
@@ -9,6 +18,6 @@ class MembershipsController < ApplicationController
 	end
 
 	def membership_params
-			params.require(:membership).permit(:user_id, :event_id, :team_id, :position_id)
+			params.permit(:event_id, :team_id, :position_id, :membership_id)
 	end
 end

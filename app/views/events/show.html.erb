@@ -34,7 +34,9 @@
 Team: <%= team.name %>
 <br/>
 Positions: <% team.positions.each do |position| %>
-<%= position.name %>
+<%= position.name %>, <%= form_tag(event_team_position_membership_path(@event, team, position, current_user.memberships.where(:event => @event)[0].id), method: "patch") do %><%= submit_tag("Join")%>
+<%end%>
+
 <% end %>
 <br/>
 <% end %>

@@ -16,7 +16,8 @@ class Event < ActiveRecord::Base
   	after_create :send_event_create_email
 
   	def self.filter(query)
-		query.blank? ? Event.all : Event.where("title LIKE '%#{query}%'")
+		#query.blank? ? Event.all : Event.where("name LIKE '%#{query}%'")
+		query.blank? ? Event.all : Event.tagged_with("#{query}")
 	end
 
   	protected

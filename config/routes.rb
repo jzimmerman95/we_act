@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :events, :only => [:index, :create, :new, :edit, :update, :show, :join]
+  resources :events, :only => [:index, :create, :new, :edit, :update, :show, :join] do
+    resources :teams do
+      resources :positions do
+        resources :memberships, :only => :update
+      end
+  end
+  end
   get 'events/:id/join' => 'events#join', as: :join
 
   #resources :memberships, :only => [:update]
-
+  
+  
   #patch 'events/:id' => 'events#update'
   resources :users, :only => [:show]
 
