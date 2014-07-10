@@ -11,7 +11,7 @@ body, html {
 #home {
 	height: 700px;
 	background-image: url("homepage.jpg");
-	background-size: 1300px 800px;
+	background-size: cover;
 	margin-left: -1.2%;
 }
 
@@ -87,8 +87,8 @@ body, html {
 }
 
 #seeforyourself {
-	margin-top: 420px;
-	margin-left: 483px;
+	margin-top: 34%;
+	margin-left: 39.5%;
 }
 
 /****************************
@@ -152,19 +152,11 @@ body, html {
 		SIGN-UP DIV
 ****************************/
 
-#signuptop {
-	padding-top: 70px; 
-	margin-top: -70px;
-	visibility: none;
-}
 
-#signupform {
-	margin-top: 300px;
-}
-
-#signup {
+/*#signup {
 	height: 400px;
-}
+}*/
+
 
 
 
