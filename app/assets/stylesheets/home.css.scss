@@ -1,26 +1,99 @@
+
 body, html {
 	background-color: white;
 	height: 100%;
-	width: 100%;
 }
+
+/****************************
+	LANDING/HOME DIV
+****************************/
 
 #home {
 	height: 700px;
 	background-image: url("homepage.jpg");
 	background-size: 1300px 800px;
-	margin-left: -1%;
+	margin-left: -1.2%;
+}
+
+.nav-wrapper {
+	width: 1295px;
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+	background-color: white;
+	height: 80px;
+	width: 100%;
+
+	ul {
+
+		list-style-type: none;
+
+		.navbar-right {
+			background-color: white;
+			position: fixed;
+			height: 50px;
+		}
+
+		.navbar-left {
+
+		}
+
+		li.active {
+			float: right;
+			font-family: 'Lato';
+			font-weight: lighter;
+			font-size: 20px;
+			text-align: center;
+
+			&#signup {
+				margin-right: 50px;
+				margin-top: 20px;
+			}
+
+			&#login {
+				margin-right: 50px;
+				margin-top: 20px;
+			}
+
+			#findeventbutton {
+				margin-top: 15px;
+				margin-bottom: 14px;
+			}
+
+			#createeventbutton {
+				margin-top: 15px;
+				margin-bottom: 14px;
+			}
+
+			#logo {
+				margin-top: -1px;
+				margin-right: 20px;
+			}
+
+		}
+
+		a {
+			display: block;
+			text-decoration: none;
+			color: black;
+			background-color: white;
+
+			&:hover {
+				color: white;
+				background-color: #dddddd;
+			}
+		}
+	}
 }
 
 #seeforyourself {
-	margin-top: 455px;
+	margin-top: 420px;
 	margin-left: 483px;
 }
 
-#abouttop {
-	padding-top: 70px;
-	margin-top: -70px;
-	visibility: none;
-}
+/****************************
+		ABOUT DIV
+****************************/
 
 #about {
 	height: 800px;
@@ -28,155 +101,70 @@ body, html {
 
 #backgroundcolor {
 	background-color: #eeeeee;
-	padding: 400px;
-	margin-left: -10px;
+	padding: 10px;
+	padding-bottom: 100px;
+	margin-left: -12px;
 }
 
-#missionstatement {
+.mission-statement {
 	text-align: center;
-	margin: -355px -130px;
 	font-family: 'Goudy Bookletter 1911';
 	font-size: 42px;
 	color: #313131;
+	margin-top: 80px;
+	margin-bottom: 80px;
+	padding-right: 100px;
+	padding-left: 100px;
 }
 
-#houseicon {
-	margin-top: 310px;
-	margin-left: 185px;
+.col-md-4 {
+
+	.fp-about-icons {
+		margin-left: 130px;
+		margin-bottom: 50px;
+
+		#houseicon {
+			margin-top: -10px;
+
+		}
+	}
+
+	.fp-about-headers {
+		padding-left: 80px;
+		font-family: 'Lato';
+		font-weight: bolder;
+	}
+
+	p {
+		font-family: 'Lato';
+		font-size: 18px;
+		color: #313131;
+		font-weight: lighter;
+		letter-spacing: 1px;
+		padding-left: 80px;
+		padding-right: 50px;
+	}
+
+	
 }
 
-#noteicon {
-	margin-top: 310px;
-}
-
-#actionicon {
-	margin-left: 11px;
-}
-
-#line {
-	width: 328px;
-	margin-bottom: 18px;
-	margin-left: 6px;
-}
-
-#line2 {
-	width: 328px;
-	margin-bottom: 18px;
-}
-
-#leftheader {
-	font-family: 'Goudy Bookletter 1911';
-	font-size: 28px;
-	margin-left: 102px;
-	color: #313131;
-}
-
-#leftparagraph {
-	font-family: 'Lato';
-	font-size: 18px;
-	color: #313131;
-	margin-top: -18px;
-	margin-left: 102px;
-	font-weight: lighter;
-	margin-right: 900px;
-	letter-spacing: 1px;
-}
-
-#midheader {
-	font-family: 'Goudy Bookletter 1911';
-	font-size: 28px;
-	margin-left: 540px;
-	margin-top: -408px;
-	color: #313131;
-}
-
-#midparagraph {
-	font-family: 'Lato';
-	font-size: 18px;
-	color: #313131;
-	margin-top: -20px;
-	margin-left: 538px;
-	font-weight: lighter;
-	margin-right: 460px;
-	letter-spacing: 1px;
-}
-
-#rightheader {
-	font-family: 'Goudy Bookletter 1911';
-	font-size: 28px;
-	margin-left: 943px;
-	margin-top: -403px;
-	color: #313131;
-}
-
-#rightparagraph {
-	font-family: 'Lato';
-	font-size: 18px;
-	color: #313131;
-	margin-top: -20px;
-	margin-left: 947px;
-	font-weight: lighter;
-	margin-right: 52px;
-	letter-spacing: 1px;
-}
-
-#logo {
-	position: fixed;
-	z-index: 10;
-	margin-left: 40px;
-	margin-top: -10px;
-}
+/****************************
+		SIGN-UP DIV
+****************************/
 
 #signuptop {
-	padding-top: 70px;
+	padding-top: 70px; 
 	margin-top: -70px;
 	visibility: none;
 }
 
+#signupform {
+	margin-top: 300px;
+}
+
 #signup {
-	height: 700px;
+	height: 400px;
 }
 
-#navbar {
-	position: fixed;
-	width: 100%;
-	margin: -6px auto;
-	z-index: 100;
-}
 
-#navbar ul {
-	margin: -10px;
-	padding: 10px;
-	list-style-type: none;
-	background-color: white;
-	position: fixed;
-	width: 100%;
-	height: 50px;
-}
-
-#navbar ul li {
-	float: right;
-	font-family: 'Lato';
-	font-weight: lighter;
-	font-size: 19px;
-	text-align: center;
-}
-
-#navbar ul li a {
-	display: block;
-	text-decoration: none;
-	margin-top: 4px;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-right: 80px;
-	color: gray;
-	background-color: white;
-}
-
-#navbar ul li a:hover {
-	color: white;
-	background-color: #7eb0fc;
-}
 

@@ -1,72 +1,85 @@
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<link rel="shortcut icon" href="favicon.ico"/>
-		<title>WeAct</title>
-		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/> -->
-	</head>
-	<body> 
-		<div id="navbar"> 
-			<ul> 
-		  		<%= image_tag("weact.jpg", height: 70, width: 170, id: "logo") %>
-		  		<li><a href="#signup">Sign Up</a></li>
-				<li><a href="#abouttop">About</a></li>
-				<li><a href="#home">Home</a></li> 
-		  	</ul> 
-		</div>
-		
-		<div id="home">
-			<div id="hometext">
-				<a href="#abouttop"id="learnmore"><%= image_tag('seeforyourself.png', id: "seeforyourself", height: 180, width: 290)%></a>
-			</div>
-			<%= image_tag("houseicon.png", id: "houseicon", height: 80, width: 80) %>
-			<%= image_tag("line.png", id: "line", height: 15, width: 270) %>
-			<%= image_tag("noteicon.png", id: "noteicon", height: 70, width: 70) %>
-			<%= image_tag("line.png", id: "line2", height: 15, width: 270) %>
-			<%= image_tag("action.png", id: "actionicon", height: 70, width: 70) %>
-			<div id="leftheader">
-				<p>Localized Events</p>
-			</div>
-			<div id="leftparagraph">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-			</div>
-			<div id="midheader">
-				<p>Issue Driven</p>
-			</div>
-			<div id="midparagraph">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-			</div>
-			<div id="rightheader">
-				<p>Take Action</p>
-			</div>
-			<div id="rightparagraph">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-			</div>
-		</div>
-		<a id="abouttop">
-			<div id="about" style="padding-top: 70px; margin-top: -70px;">
-				<div id="backgroundcolor">
-					<div id="missionstatement">
-						<p>We strive to <strong>strengthen</strong> community bonds through activism at a grassroots level.</p>
-					</div>
-				</div>
-			</div>
-		</a>
-		<a id="signuptop">
-			<div id="signup" style="padding-top: 70px; margin-top: -70px;">
-				<div id="signupform">
-					<%= form_for(:user, :url => session_path(:user)) do |f| %>
-					  Email:<%= f.text_field :email %>
-					  Password:<%= f.password_field :password %>
-					  <%= f.check_box :remember_me %>
-					  <%= f.label :remember_me %>
-					  <%= f.submit 'Sign in' %>
-					  <%= link_to "Forgot your password?", new_password_path(:user) %>
-					<% end %>
-				</div>
-			</div>
-		</a>
-	</body>
-</html>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="nav-wrapper">
+		<ul class="navbar-right">
+			<li class="active" id="signup"><a href="users/sign_up">Sign up</a></li>
+			<li class="active" id="login"><a href="#">Login</a></li>
+		</ul>
+		<ul class="navbar-left">
+			<li class="active" id="createeventbutton"><a href="events/new"><%= image_tag("createeventbutton.png", height: 50, width: 95, id: "createeventbutton") %></a></li>
+			<li class="active" id="findeventbutton"><a href="events"><%= image_tag("findeventbutton.png", height: 50, width: 100, id: "findeventbutton") %></a></li>
+			<li class="active" id="logo"><a href=""><%= image_tag("weact.jpg", height: 80, width: 180, id: "logo") %></a></li>
+		</ul>
+		<!-- <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+					<li class="divider"></li>
+					<li><a href="#">One more separated link</a></li>
+				</ul>
+		</li> -->
+	</div>
+</nav>
+<div id="home">
+	<div id="hometext">
+		<a href="#abouttop" id="learnmore"><%= image_tag('seeforyourself.png', id: "seeforyourself", height: 180, width: 290)%></a>
+	</div>
+</div>
+<a id="abouttop"></a>
 
+<div id="about">
+	<div id="backgroundcolor">
+		<div class="about-content">
+			<h1 class="mission-statement" id="mission-statement">We strive to <strong>strengthen</strong> community bonds through activism at a grassroots level.</h1>
+			<!-- <div id="front-page-picture">
+					<%= image_tag("houseicon.png", id: "houseicon", height: 80, width: 80) %>
+					<%= image_tag("line.png", id: "line", height: 15, width: 270) %>
+					<%= image_tag("noteicon.png", id: "noteicon", height: 70, width: 70) %>
+					<%= image_tag("line.png", id: "line2", height: 15, width: 270) %>
+					<%= image_tag("action.png", id: "actionicon", height: 70, width: 70) %>
+			</div> -->
+			<div class="row">
+				<div class="col-md-4">
+					<div class="fp-about-icons"><%= image_tag("houseicon.png", id: "houseicon", height: 80, width: 80) %></div>
+					<h3 class="fp-about-headers" id="left-header">Localized Events</h3>
+					<p class="fp-paragraphs" id="leftparagraph">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+					</p>
+				</div>
+				<div class="col-md-4">
+					<div class="fp-about-icons"><%= image_tag("noteicon.png", id: "noteicon", height: 70, width: 70) %></div>
+					<h3 class="fp-about-headers" id="mid-header">Issue Driven</h3>
+					<p class="fp-paragraphs" id="midparagraph">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+					</p>
+				</div>
+				<div class="col-md-4">
+					<div class="fp-about-icons"><%= image_tag("action.png", id: "actionicon", height: 70, width: 70) %></div>
+					<h3 class="fp-about-headers" id="right-header">Take Action</h3>
+					<p class="fp-paragraphs" id="rightparagraph">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<a id="signuptop"></a>
+		<div id="signup">
+		<div id="signupform">
+			<%= form_for(:user, :url => session_path(:user)) do |f| %>
+			Email:<%= f.text_field :email %>
+			Password:<%= f.password_field :password %>
+			<%= f.check_box :remember_me %>
+			<%= f.label :remember_me %>
+			<%= f.submit 'Sign in' %>
+			<%= link_to "Forgot your password?", new_password_path(:user) %>
+			<% end %>
+		</div>
+		</div>
+</body>
+</html>
 <%= link_to 'Events', events_path %>
