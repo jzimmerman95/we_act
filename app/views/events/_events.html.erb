@@ -3,9 +3,7 @@
 	<li>
 		<%= link_to image_tag(event.picture), event_path(event) %>
 		<%= link_to 'Edit', edit_event_path(event) %>
-		<% if user_signed_in? %>
-			<%= link_to "Join", join_url(id: event.id) %>
-		<%end%>
+		
 	</li>
 
 	<% end %>

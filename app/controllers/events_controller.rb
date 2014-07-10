@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:create, :join, :edit, :update, :new]
 	before_action :set_event, only: [:edit, :update, :show, :join]
 
 	def new
