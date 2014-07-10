@@ -25,6 +25,8 @@ class EventsController < ApplicationController
   	
   	end
 
+  	
+
   	def success_index
   		@events = Event.where(:status => 1)
   	end

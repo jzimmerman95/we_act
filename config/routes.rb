@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'events/success' => 'events#success_index', as: :success_index
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   resources :events, :only => [:index, :create, :new, :edit, :update, :show, :join] do
+    resources :epictures, :only => :create
     resources :teams do
       resources :positions do
         resources :memberships, :only => :update

@@ -53,7 +53,19 @@ Positions: <% team.positions.each do |position| %>
 
 <%= link_to "Join", join_url(id: @event.id) %>
 
+<p>
+	<strong>Upload Pic:</strong>
+	<%= form_for(@event, :url => event_epictures_path(@event), :html => { :multipart => true }, method: 'post') do |f| %><%= f.label :picture %>:
+  <%= f.file_field :picture %><%= f.submit("Upload")%><%end%>
 
+</p>
+
+<p>
+	<strong>Pics:</strong>
+	<% @event.epictures.each do |pic| %>
+	<%= image_tag pic.picture.url() %>
+	<%end%>
+</p>
 
 <p><%= form_tag(event_path(@event, :status => 1), method: "patch") do %><%= submit_tag("Complete")%><%end%></p>
 <%= link_to 'Back', events_path %>

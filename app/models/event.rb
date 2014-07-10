@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 	acts_as_taggable
 	acts_as_taggable_on :categories
 
-
+	has_many :epictures
 	has_many :memberships
 	has_many :users, :through => :memberships
 
