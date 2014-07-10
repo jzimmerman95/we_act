@@ -11,6 +11,10 @@ gem 'omniauth-facebook'
 
 gem 'pry', require: false
 
+gem 'rails_12factor', group: :production
+
+gem 'pg', group: :production
+
 gem 'acts-as-taggable-on'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'

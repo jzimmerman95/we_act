@@ -17,7 +17,8 @@ class Event < ActiveRecord::Base
 
   	def self.filter(query)
 		#query.blank? ? Event.all : Event.where("name LIKE '%#{query}%'")
-		query.blank? ? Event.all : Event.tagged_with("#{query}")
+		#query.blank? ? Event.all : Event.tagged_with("#{query}")
+		query.blank? ? Event.all : Event.where("city LIKE '%#{query}%'")
 	end
 
   	protected

@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 		@event.status = 0
 		if @event.save
 			#current_user.events << @event
-			redirect_to events_path
+			redirect_to event_path(@event)
 		else
 			render :new
 		end
@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   	
   	end
 
-  	
+
 
   	def success_index
   		@events = Event.where(:status => 1)
