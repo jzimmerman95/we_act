@@ -1,10 +1,15 @@
 source 'https://rubygems.org'
 
 gem 'devise'
+
 gem 'paperclip'
+
 gem 'bootstrap-sass'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+gem 'pry', require: false
 
 gem 'acts-as-taggable-on'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

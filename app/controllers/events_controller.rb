@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
+
 		@event = Event.new(event_params.merge({:admin_id => current_user.id}))
 		@event.status = 0
 		if @event.save
@@ -34,7 +35,17 @@ class EventsController < ApplicationController
   	end
 
   	def update 
-  		@event.update(event_params)
+
+  		#check for completion call
+  		if params[:status] 
+  			@event.update(:status => params[:status])
+
+  		#otherwise it is a normal edit
+  		else
+  			@event.update(event_params)
+  		end
+
+  		#return to that event
   		redirect_to @event
   	end
 
@@ -54,4 +65,6 @@ class EventsController < ApplicationController
 		def event_params
 			params.require(:event).permit(:title, :description, :city, :state, :address, :event_time, :picture, :category_list, :status)
 		end
+
+		
 end
