@@ -4,7 +4,9 @@
 <p><%=@user.bio%></p>
 <p><%=@user.city%></p>
 <p><%=@user.state%></p>
-<p><%=@user.name%></p>
+<% if @user.profile_pic %>
+  <%=image_tag @user.profile_pic %>
+<% end %>
 
 <p>Your Created Events:</p>
 <% @user.created_events.each do |event| %>

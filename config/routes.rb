@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   resources :events, :only => [:index, :create, :new, :edit, :update, :show, :join] do
     resources :teams do
       resources :positions do
