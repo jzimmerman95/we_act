@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'events/success' => 'events#success_index', as: :success_index
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   resources :events, :only => [:index, :create, :new, :edit, :update, :show, :join] do
     resources :teams do
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   end
   end
   get 'events/:id/join' => 'events#join', as: :join
+
 
   #resources :memberships, :only => [:update]
   

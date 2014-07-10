@@ -28,6 +28,7 @@
 	<%= image_tag @event.picture.url(:thumb) %>
 </p>
 
+
 <p>
 	
 <% @event.teams.each do |team| %>
@@ -48,4 +49,11 @@ Positions: <% team.positions.each do |position| %>
 	<%= category %>
 	<%end%>
 </p>
+
+
+
+
+
+
+<p><%= form_tag(event_path(@event, :status => 1), method: "patch") do %><%= submit_tag("Complete")%><%end%></p>
 <%= link_to 'Back', events_path %>

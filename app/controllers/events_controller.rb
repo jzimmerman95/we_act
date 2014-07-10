@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
 	def create
 		@event = Event.new(event_params.merge({:admin_id => current_user.id}))
+		@event.status = 0
 		if @event.save
 			#current_user.events << @event
 			redirect_to events_path
@@ -21,6 +22,10 @@ class EventsController < ApplicationController
 
   	def show
   	
+  	end
+
+  	def success_index
+  		@events = Event.where(:status => 1)
   	end
 
   	def join
@@ -47,6 +52,6 @@ class EventsController < ApplicationController
 		end
 
 		def event_params
-			params.require(:event).permit(:title, :description, :city, :state, :address, :event_time, :picture, :category_list)
+			params.require(:event).permit(:title, :description, :city, :state, :address, :event_time, :picture, :category_list, :status)
 		end
 end
