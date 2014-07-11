@@ -9,11 +9,18 @@
 <% end %>
 
 <p>Your Created Events:</p>
+<% if @user.created_events.size > 0 %>
 <% @user.created_events.each do |event| %>
 <li><%= link_to event.title, event_path(event) %></li>
 <%end%>
+<% else %>
+
+Looks like you haven't created any events yet <%= link_to 'Create Event!', new_event_path %>
+
+<% end %>
 
 <p>Your Joined Events:</p>
+<% if @user.events.size > 0 %>
 <% @user.events.each do |event| %>
 <li><%= link_to event.title, event_path(event) %></li>
 
@@ -24,6 +31,9 @@
 			<%end%>
 		<%end%>
 	<%end%>
+<%end%>
+<%else%>
+Looks like you haven't joined any events <%= link_to 'View Events Now', events_path %>
 <%end%>
 
 <p>Your Interests</p>
@@ -39,3 +49,5 @@ Event Categories:<%@user.category_list.each do |category| %>
 <br/>
 <%= link_to 'View All Events', events_path %>
 </br>
+<%= link_to 'Update Account', edit_user_registration_path %>
+<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %>

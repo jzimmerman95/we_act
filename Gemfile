@@ -11,6 +11,8 @@ gem 'omniauth-facebook'
 
 gem 'pry', require: false
 
+gem 'lazy_high_charts'
+
 #gem 'rails_12factor', group: :production
 
 #gem 'pg', group: :production
