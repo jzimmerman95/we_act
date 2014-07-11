@@ -1,75 +1,52 @@
 
 
-
-<div class="event-show-view">
-	<div class="row">
-		<div id="event-show-title">
-			<%= @event.title %>
-		</div>
-		<div class="col-md-4">
-			<div class="event-show-image">
-				<%= image_tag @event.picture, :size => "400x250" %>
+<% if @event.status == 1 %>
+	<div class="event-show-view">
+		<div class="row">
+			<div id="event-show-title">
+				<%= @event.title %>
 			</div>
-			
-			<div id="join-event-button">
-				<% if @event.users.include?(current_user) %>
-				You are a member of this event!
+			<div class="col-md-4">
+				<div class="event-show-image">
+					<%= image_tag @event.picture, :size => "400x250" %>
+				</div>
 				
-				<%else%>
-				<%= link_to "+ Join Event", join_url(id: @event.id) %>
-				<%end%>
+				<div id="join-event-button">
+					This event is over!
+				</div>
+				<div class="event-show-attributes">
+					<div id="attribute-description">Description:</div>
+					<%= @event.description %>
+
+					<hr style="background-color:black; border:0; height:1px" />
+
+					<table>
+						<tr>
+							<td><div id="attribute-city">City:</div></td>
+							<td><%= @event.city %></td>
+
+							<td><div id="attribute-state">State:</div></td>
+							<td><%= @event.state %></td>
+						</tr>
+					</table>
+					<hr style="background-color:black; border:0; height:1px" />
+
+					<div id="attribute-address">Address:</div>
+					<%= @event.address %>
+				</div>
 			</div>
-			<div class="event-show-attributes">
-				<div id="attribute-description">Description:</div>
-				<%= @event.description %>
+		<div class="col-md-6">
+			<div class="event-structure-header">
+				<p>Event Structure<p>
+			</div>	
 
-				<hr style="background-color:black; border:0; height:1px" />
-
-				<table>
-					<tr>
-						<td><div id="attribute-city">City:</div></td>
-						<td><%= @event.city %></td>
-
-						<td><div id="attribute-state">State:</div></td>
-						<td><%= @event.state %></td>
-					</tr>
-				</table>
-				<hr style="background-color:black; border:0; height:1px" />
-
-				<div id="attribute-address">Address:</div>
-				<%= @event.address %>
-			</div>
-		</div>
-	<div class="col-md-6">
-		<div class="event-structure-header">
-			<p>Event Structure<p>
-		</div>	
-
-		<div class="event-team-positions">
-				<% @event.teams.each do |team| %>
-					
-						Team: <%= team.name %>
-						<br />
-						Positions: <br /><% team.positions.each do |position| %>
-						<%= position.name %>
-						<% if @event.users.include?(current_user) %>
-						<% if current_user.positions.include?(position) %>
-						<br/>
-						You are signed up as <%= position.name %>!
-						<br/>
-						<%else%>
-						<%= form_tag(event_team_position_membership_path(@event, team, position, current_user.memberships.where(:event => @event)[0].id), method: "patch") do %><%= submit_tag("Join")%>
-						<%end%>
-						<%end%>
-						<% end %>
-					<% end %>
-					<br/>
-				<% end %>
-				</div>	
+			<div class="event-team-positions">
+					<%= high_chart("some_id", @chart) %>
+					</div>	
+				</div>
 			</div>
 		</div>
-	</div>
-	<!-- <p>
+	<p>
 		<strong>Upload Pic:</strong>
 		<%= form_for(@event, :url => event_epictures_path(@event), :html => { :multipart => true }, method: 'post') do |f| %><%= f.label :picture %>:
 	  <%= f.file_field :picture %><%= f.submit("Upload")%><%end%>
@@ -83,7 +60,75 @@
 		<%end%>
 	</p>
 
-	<p><%= form_tag(event_path(@event, :status => 1), method: "patch") do %><%= submit_tag("Complete")%><%end%></p>
+	<!-- <p><%= form_tag(event_path(@event, :status => 1), method: "patch") do %><%= submit_tag("Complete")%><%end%></p>
 	<%= link_to 'Back', events_path %> -->
+<%else%>
+	<div class="event-show-view">
+		<div class="row">
+			<div id="event-show-title">
+				<%= @event.title %>
+			</div>
+			<div class="col-md-4">
+				<div class="event-show-image">
+					<%= image_tag @event.picture, :size => "400x250" %>
+				</div>
+				
+				<div id="join-event-button">
+					<% if @event.users.include?(current_user) %>
+					You are a member of this event!
+					
+					<%else%>
+					<%= link_to "+ Join Event", join_url(id: @event.id) %>
+					<%end%>
+				</div>
+				<div class="event-show-attributes">
+					<div id="attribute-description">Description:</div>
+					<%= @event.description %>
 
+					<hr style="background-color:black; border:0; height:1px" />
 
+					<table>
+						<tr>
+							<td><div id="attribute-city">City:</div></td>
+							<td><%= @event.city %></td>
+
+							<td><div id="attribute-state">State:</div></td>
+							<td><%= @event.state %></td>
+						</tr>
+					</table>
+					<hr style="background-color:black; border:0; height:1px" />
+
+					<div id="attribute-address">Address:</div>
+					<%= @event.address %>
+				</div>
+			</div>
+		<div class="col-md-6">
+			<div class="event-structure-header">
+				<p>Event Structure<p>
+			</div>	
+
+			<div class="event-team-positions">
+					<% @event.teams.each do |team| %>
+						
+							Team: <%= team.name %>
+							<br />
+							Positions: <br /><% team.positions.each do |position| %>
+							<%= position.name %>
+							<% if @event.users.include?(current_user) %>
+							<% if current_user.positions.include?(position) %>
+							<br/>
+							You are signed up as <%= position.name %>!
+							<br/>
+							<%else%>
+							<%= form_tag(event_team_position_membership_path(@event, team, position, current_user.memberships.where(:event => @event)[0].id), method: "patch") do %><%= submit_tag("Join")%>
+							<%end%>
+							<%end%>
+							<% end %>
+						<% end %>
+						<br/>
+					<% end %>
+					</div>	
+				</div>
+			</div>
+		</div>
+<%end%>
