@@ -10,7 +10,7 @@ class MembershipsController < ApplicationController
 
 	def update
 		@membership.update(membership_params)
-		redirect_to events_path
+		redirect_to :back
 	end
 
 	def set_membership

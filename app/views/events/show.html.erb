@@ -22,9 +22,14 @@
 			<div class="event-show-image">
 				<%= image_tag @event.picture, :size => "400x250" %>
 			</div>
-
+			
 			<div id="join-event-button">
+				<% if @event.users.include?(current_user) %>
+				You are a member of this event!
+				
+				<%else%>
 				<%= link_to "+ Join Event", join_url(id: @event.id) %>
+				<%end%>
 			</div>
 			<div class="event-show-attributes">
 				<div id="attribute-description">Description:</div>
@@ -60,9 +65,13 @@
 						Positions: <br /><% team.positions.each do |position| %>
 						<%= position.name %>
 						<% if @event.users.include?(current_user) %>
-
+						<% if current_user.positions.include?(position) %>
+						<br/>
+						You are signed up as <%= position.name %>!
+						<br/>
+						<%else%>
 						<%= form_tag(event_team_position_membership_path(@event, team, position, current_user.memberships.where(:event => @event)[0].id), method: "patch") do %><%= submit_tag("Join")%>
-
+						<%end%>
 						<%end%>
 						<% end %>
 					<% end %>
