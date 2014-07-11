@@ -9,6 +9,35 @@
 	width: 100%;
 }
 
+#success-stories-header {
+	font-family: 'Lato';
+	font-size: 60px;
+	text-align: center;
+	float: center;
+	color: white;
+}
+
+#events-success-pic {
+	background-image: url("peoplecheering.jpg");
+	background-size: cover;
+	height: 400px;
+	width: 100%;
+
+	h1 {
+		font-family: 'Lato';
+		font-weight: lighter;
+		font-size: 100px;
+		margin-left: 22%;
+		margin-top: 15%;
+		text-align: center;
+		float: center;
+		color: white;
+		position: absolute;
+		z-index: 20;
+		background-color: rgba(0,0,0, 0.5);
+	}
+}
+
 #search-label {
 	font-family: 'Lato';
 	font-weight: lighter;
