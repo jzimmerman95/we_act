@@ -66,7 +66,7 @@ class EventsController < ApplicationController
   	end
 
 	def index
-		@events = Event.filter(params[:q])
+		@events = Event.filter(params[:q], params[:field])
 		if request.xhr? 
       		render :partial => 'events', :layout => nil
     	end

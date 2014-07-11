@@ -8,6 +8,7 @@
 		<div id="search-label"><%= image_tag("searchicon.png", :size => "20x20") %> Search Events:</div>
 		<%= form_tag "/events", method: 'GET', id: 'events_search' do %>
 		 	<%= text_field_tag 'q', params[:q] %>
+		 	<%= select_tag 'field', options_for_select([ ["Location", "city"], ["Category", "category"], ["Event Title", "title"] ]) %>
 		  <div style="clear: both"></div>
 		<% end %>
 	</div>
