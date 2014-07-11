@@ -58,7 +58,12 @@
 						Team: <%= team.name %>
 						<br />
 						Positions: <br /><% team.positions.each do |position| %>
-						<%= position.name %><%= form_tag(event_team_position_membership_path(@event, team, position, current_user.memberships.where(:event => @event)[0].id), method: "patch") do %><%= submit_tag("Join")%>
+						<%= position.name %>
+						<% if @event.users.include?(current_user) %>
+
+						<%= form_tag(event_team_position_membership_path(@event, team, position, current_user.memberships.where(:event => @event)[0].id), method: "patch") do %><%= submit_tag("Join")%>
+
+						<%end%>
 						<% end %>
 					<% end %>
 					<br/>
