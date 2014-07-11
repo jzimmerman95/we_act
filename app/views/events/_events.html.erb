@@ -1,12 +1,13 @@
-<ul>
-	<% @events.each do |event| %>
-	<li>
-		<%= link_to image_tag(event.picture), event_path(event) %>
-		<%= link_to 'Edit', edit_event_path(event) %>
+<div id="eventslist">
+	<div class="row">
+		<% @events.each do |event| %>
 		
-	</li>
-
-	<% end %>
-
-
-</ul>
+		<div class="col-md-4">
+			<div class="event-pic-wrapper">
+				<%= link_to image_tag(event.picture, :size => '300x200'), event_path(event) %>
+				<div id="events-event-label"><%= event.title %></div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>	

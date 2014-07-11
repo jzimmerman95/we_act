@@ -1,71 +1,82 @@
-<p>
-	<strong>Title:</strong>
-	<%= @event.title %>
-</p>
-
-<p>
-	<strong>Description:</strong>
-	<%= @event.description %>
-</p>
-
-<p>
-	<strong>City:</strong>
-	<%= @event.city %>
-</p>
-
-<p>
-	<strong>State:</strong>
-	<%= @event.state %>
-</p>
-
-<p>
-	<strong>Address:</strong>
-	<%= @event.address %>
-</p>
-
-<p>
-	<strong>Picture:</strong>
-	<%= image_tag @event.picture.url(:thumb) %>
-</p>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="nav-wrapper">
+		<ul class="navbar-right">
+			<li class="active" id="signup"><%= link_to "Sign up", new_user_registration_path %></li>
+			<li class="active" id="login"><%= link_to "Login", new_user_session_path %></li>
+		</ul>
+		<ul class="navbar-left">
+			<li class="active" id="createeventbutton"><%= link_to image_tag("createeventbutton.png", height: 50, width: 95, id: "createeventbutton"), new_event_path %></li>
+			<li class="active" id="findeventbutton"><%= link_to image_tag("findeventbutton.png", height: 50, width: 100, id: "findeventbutton"), events_path %></li>
+			<li class="active" id="logo"><%= link_to image_tag("weact.jpg", height: 80, width: 180, id: "logo"), root_path %></li>
+		</ul>
+	</div>
+</nav>
 
 
-<p>
-	
-<% @event.teams.each do |team| %>
-Team: <%= team.name %>
-<br/>
-Positions: <% team.positions.each do |position| %>
-<%= position.name %>, <%= form_tag(event_team_position_membership_path(@event, team, position, current_user.memberships.where(:event => @event)[0].id), method: "patch") do %><%= submit_tag("Join")%>
-<%end%>
+<div class="event-show-view">
+	<div id="event-show-title">
+		<%= @event.title %>
+	</div>
+	<div class="event-show-image">
+		<%= image_tag @event.picture, :size => "400x250" %>
+	</div>
 
-<% end %>
-<br/>
-<% end %>
-</p>
+	<div id="join-event-button">
+		<%= link_to "+ Join Event", join_url(id: @event.id) %>
+	</div>
+	<div class="event-show-attributes">
+		<div id="attribute-description">Description:</div>
+		<%= @event.description %>
 
-<p>
+		<hr style="background-color:black; border:0; height:1px" />
 
-	Categories:<% @event.category_list.each do |category| %>
-	<%= category %>
-	<%end%>
-</p>
+		<table>
+			<tr>
+				<td><div id="attribute-city">City:</div></td>
+				<td><%= @event.city %></td>
+
+				<td><div id="attribute-state">State:</div></td>
+				<td><%= @event.state %></td>
+			</tr>
+		</table>
+		<hr style="background-color:black; border:0; height:1px" />
+
+		<div id="attribute-address">Address:</div>
+		<%= @event.address %>
+	</div>	
+
+	<div class="event-structure-header">
+		<p>Event Structure<p>
+	</div>	
+
+	<div class="event-team-positions">
+			<% @event.teams.each do |team| %>
+				
+					Team: <%= team.name %>
+					<br />
+					Positions: <br /><% team.positions.each do |position| %>
+					<%= position.name %><%= form_tag(event_team_position_membership_path(@event, team, position, current_user.memberships.where(:event => @event)[0].id), method: "patch") do %><%= submit_tag("Join")%>
+					<% end %>
+				<% end %>
+				<br/>
+			<% end %>
+			</div>	
+		</div>
+	<!-- <p>
+		<strong>Upload Pic:</strong>
+		<%= form_for(@event, :url => event_epictures_path(@event), :html => { :multipart => true }, method: 'post') do |f| %><%= f.label :picture %>:
+	  <%= f.file_field :picture %><%= f.submit("Upload")%><%end%>
+
+	</p>
+
+	<p>
+		<strong>Pics:</strong>
+		<% @event.epictures.each do |pic| %>
+		<%= image_tag pic.picture.url() %>
+		<%end%>
+	</p>
+
+	<p><%= form_tag(event_path(@event, :status => 1), method: "patch") do %><%= submit_tag("Complete")%><%end%></p>
+	<%= link_to 'Back', events_path %> -->
 
 
-<%= link_to "Join", join_url(id: @event.id) %>
-
-<p>
-	<strong>Upload Pic:</strong>
-	<%= form_for(@event, :url => event_epictures_path(@event), :html => { :multipart => true }, method: 'post') do |f| %><%= f.label :picture %>:
-  <%= f.file_field :picture %><%= f.submit("Upload")%><%end%>
-
-</p>
-
-<p>
-	<strong>Pics:</strong>
-	<% @event.epictures.each do |pic| %>
-	<%= image_tag pic.picture.url() %>
-	<%end%>
-</p>
-
-<p><%= form_tag(event_path(@event, :status => 1), method: "patch") do %><%= submit_tag("Complete")%><%end%></p>
-<%= link_to 'Back', events_path %>

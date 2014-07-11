@@ -1,26 +1,42 @@
-<h1>Events List</h1>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="nav-wrapper">
+		<ul class="navbar-right">
+			<li class="active" id="signup"><%= link_to "Sign up", new_user_registration_path %></li>
+			<li class="active" id="login"><%= link_to "Login", new_user_session_path %></li>
+		</ul>
+		<ul class="navbar-left">
+			<li class="active" id="createeventbutton"><%= link_to image_tag("createeventbutton.png", height: 50, width: 95, id: "createeventbutton"), new_event_path %></li>
+			<li class="active" id="findeventbutton"><%= link_to image_tag("findeventbutton.png", height: 50, width: 100, id: "findeventbutton"), events_path %></li>
+			<li class="active" id="logo"><%= link_to image_tag("weact.jpg", height: 80, width: 180, id: "logo"), root_path %></li>
+		</ul>
+	</div>
+</nav>
 
 
-<%= form_tag "/events", method: 'GET', id: 'events_search' do %>
- 
-  <%= text_field_tag 'q', params[:q] %>
-  <div style="clear: both"></div>
-<% end %>
+<div class="events-content">
+	<div id="events-shovel-pic">
+	</div>
+	<div class="events-searchbar">
+		<div id="search-label"><%= image_tag("searchicon.png", :size => "20x20") %> Search Events:</div>
+		<%= form_tag "/events", method: 'GET', id: 'events_search' do %>
+		 	<%= text_field_tag 'q', params[:q] %>
+		  <div style="clear: both"></div>
+		<% end %>
+	</div>
 
+	<div id="events">
+	  <%= render "events" %>
+	</div>
 
-<div id="events">
-  <%= render "events" %>
+	<% if user_signed_in? %>
+		</br>
+		<%= link_to 'Create Event', new_event_path %>
+		<br/>
+
+		<%= link_to 'View Profile', user_path(current_user) %>
+		<br/>
+		<%= link_to 'Update Account', edit_user_registration_path %>
+		<%= link_to 'Stories', success_index_path %>
+	<%end%>
 </div>
-
-<% if user_signed_in? %>
-	</br>
-	<%= link_to 'Create Event', new_event_path %>
-	<br/>
-
-	<%= link_to 'View Profile', user_path(current_user) %>
-	<br/>
-	<%= link_to 'Update Account', edit_user_registration_path %>
-	<%= link_to 'Stories', success_index_path %>
-<%end%>
-
 
