@@ -17,12 +17,6 @@
 	</div>
 
 	<% if user_signed_in? %>
-		</br>
-		<%= link_to 'Create Event', new_event_path %>
-		<br/>
-
-		<%= link_to 'View Profile', user_path(current_user) %>
-		<br/>
 		<%= link_to 'Update Account', edit_user_registration_path %>
 		<%= link_to 'Stories', success_index_path %>
 	<%end%>
