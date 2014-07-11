@@ -1,0 +1,29 @@
+<% if user_signed_in? %>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="nav-wrapper">
+			<ul class="navbar-right">
+				<li class="active" id="login"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %></li>
+				<li class="active" id="login"><%= link_to "Welcome, #{current_user.name}!", user_path(current_user) %></li>
+			</ul>
+			<ul class="navbar-left">
+				<li class="active" id="createeventbutton"><%= link_to image_tag("createeventbutton.png", height: 50, width: 95, id: "createeventbutton"), new_event_path %></li>
+				<li class="active" id="findeventbutton"><%= link_to image_tag("findeventbutton.png", height: 50, width: 100, id: "findeventbutton"), events_path %></li>
+				<li class="active" id="logo"><%= link_to image_tag("weact.jpg", height: 80, width: 180, id: "logo"), root_path %></li>
+			</ul>
+		</div>
+	</nav>
+<%else%>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="nav-wrapper">
+			<ul class="navbar-right">
+				<li class="active" id="signup"><%= link_to "Sign up", new_user_registration_path %></li>
+				<li class="active" id="login"><%= link_to "Login", new_user_session_path %></li>
+			</ul>
+			<ul class="navbar-left">
+				<li class="active" id="createeventbutton"><%= link_to image_tag("createeventbutton.png", height: 50, width: 95, id: "createeventbutton"), new_event_path %></li>
+				<li class="active" id="findeventbutton"><%= link_to image_tag("findeventbutton.png", height: 50, width: 100, id: "findeventbutton"), events_path %></li>
+				<li class="active" id="logo"><%= link_to image_tag("weact.jpg", height: 80, width: 180, id: "logo"), root_path %></li>
+			</ul>
+		</div>
+	</nav>
+<%end%>
