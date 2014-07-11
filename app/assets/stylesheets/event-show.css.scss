@@ -29,7 +29,6 @@
 
 #join-event-button {
 	background-color: white;
-	margin-right: 728px;
 	margin-left: 150px;
 	margin-top: 20px;
 	padding-top: 10px;
@@ -38,6 +37,7 @@
 	font-family: 'Lato';
 	font-size: 22px;
 	box-shadow: 2px 2px 5px gray;
+	width: 400px;
 }
 
 .event-show-attributes {
@@ -48,24 +48,26 @@
 	padding-bottom: 10px;
 	margin-top: 23px;
 	margin-left: 150px;
-	margin-right: 728px;
 	font-family: 'Lato';
 	font-size: 20px;
 	font-weight: lighter;
 	box-shadow: 2px 2px 5px gray;
+	width: 400px;
+	text-align: left;
 
 	#attribute-description, #attribute-city, #attribute-state, #attribute-address {
 		font-weight: normal;
+		text-align: left;
 	}
 }
 
 .event-structure-header {
+	margin-top: 30px;
 	background-color: white;
-	margin-left: 580px;
-	margin-top: -618px;
+	margin-left: 150px;
+	width: 555px;
 	font-family: 'Lato';
 	font-size: 35px;
-	margin-right: 150px;
 	text-align: center;
 	box-shadow: 2px 2px 5px gray;
 }
@@ -75,9 +77,9 @@
 	background-color: white;
 	font-family: 'Lato';
 	font-size: 20px;
-	margin-left: 580px;
 	margin-top: 20px;
-	margin-right: 150px;
+	margin-left: 150px;
+	width: 555px;
 	list-style: none;
 	padding: 10px 10px;
 	text-align: center;
